@@ -8,7 +8,7 @@
 font-family: "Clash Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 */
-.perfil{
+.img-perfil{
     border-radius: 50%;
     height: 20rem;
     margin-left: 30rem;
@@ -18,8 +18,21 @@ font-family: "Clash Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI",
 h1{
     text-align: center;
     font-size: 5rem;
-    margin-top: -12rem;
+    margin-top: -17rem;
     margin-left: 15rem;
+}
+
+.images{
+    height: 5rem;
+    margin: 0 0 -5rem 10rem;
+}
+
+.img-git{
+    margin-left: 45%;
+}
+
+.left{
+    margin-left: -47.5rem;
 }
 
 h2 {
