@@ -1,7 +1,13 @@
 *{
     background-color: beige;
+    font-family: "Clash Grotesk";
 }
 
+/* 
+"Clash Grotesk" = times new roman
+font-family: "Clash Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+*/
 .perfil{
     border-radius: 50%;
     height: 20rem;

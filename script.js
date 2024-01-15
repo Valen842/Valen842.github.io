@@ -18,5 +18,4 @@ window.addEventListener("load", () => {
     window.location.href = "https://www.gottert.com.ar/";
   });
 
-  console.log("hola");
 });
