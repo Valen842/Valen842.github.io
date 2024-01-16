@@ -2,23 +2,52 @@
 
 window.addEventListener("load", () => {
   mouseEffects();
+  toggleSections(); // Asegura la visibilidad inicial
 
+  var showAboutMe = true; // Variable de bandera
 
+  // Listener para el botón de alternancia
+  var toggleButton = document.getElementById("toggleButton");
+  toggleButton.addEventListener("click", () => {
+    showAboutMe = !showAboutMe; // Invierte el valor de la bandera
+    toggleSections();
+    updateButtonText(); // Actualiza el texto del botón
+  });
+
+  function toggleSections() {
+    var aboutMeSection = document.querySelector(".about-me");
+    var cvSection = document.querySelector(".cv");
+
+    if (showAboutMe) {
+      aboutMeSection.style.display = "block";
+      cvSection.style.display = "none";
+    } else {
+      aboutMeSection.style.display = "none";
+      cvSection.style.display = "block";
+    }
+  }
+
+  function updateButtonText() {
+    toggleButton.textContent = showAboutMe ? "View CV" : "About Me";
+  }
 });
 
 
 
 function mouseEffects(){
+  clicks();
+  hover();
+}
+
+
+
+function clicks(){
   var etrr = document.querySelector(".img-etrr");
   var fce = document.querySelector(".img-fce");
   var gottert = document.querySelector(".img-gottert");
   var github = document.querySelector('.img-git');
   var linkedin = document.querySelector('.img-in');
   var twitter = document.querySelector('.img-x');
-  var cisco = document.querySelector('.text-cisco');  
-  var pythonImage = document.querySelector('.python');
-
-
 
   etrr.addEventListener("click", function () {
     window.location.href = "http://www.tecnicarobertorocca.edu.ar/campana";
@@ -43,8 +72,20 @@ function mouseEffects(){
   twitter.addEventListener('click', function(){
     window.location.href = 'https://twitter.com/Valenbisbano';
   });
+}
+
+function hover(){
+  var cisco = document.querySelector('.text-cisco');  
+  var pythonImage = document.querySelector('.python');
+  var freeCodeCampImage = document.querySelector('.freeCodeCamp');
+  var freeCodeCamp = document.querySelector('.text-freeCodeCamp');
+ 
 
   cisco.addEventListener('mouseover', function () {
     pythonImage.classList.add('active');
-});
+  });
+
+  freeCodeCamp.addEventListener('mouseover', function () {
+    freeCodeCampImage.classList.add('active');
+  });
 }
