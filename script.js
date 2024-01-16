@@ -7,6 +7,9 @@ window.addEventListener("load", () => {
   var github = document.querySelector('.img-git');
   var linkedin = document.querySelector('.img-in');
   var twitter = document.querySelector('.img-x');
+  var cisco = document.querySelector('.text-cisco');  
+  var pythonImage = document.querySelector('.python');
+
 
 
   etrr.addEventListener("click", function () {
@@ -32,6 +35,10 @@ window.addEventListener("load", () => {
   twitter.addEventListener('click', function(){
     window.location.href = 'https://twitter.com/Valenbisbano';
   });
+
+  cisco.addEventListener('mouseover', function () {
+    pythonImage.classList.add('active');
+});
 
 
 });

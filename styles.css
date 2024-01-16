@@ -13,6 +13,7 @@ font-family: "Clash Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI",
     height: 20rem;
     margin-left: 30rem;
     margin-top: 5rem;
+    z-index: 2;
 }
 
 h1{
@@ -20,15 +21,26 @@ h1{
     font-size: 5rem;
     margin-top: -17rem;
     margin-left: 15rem;
+    z-index: 2;
 }
 
-.images{
+.images {
     height: 5rem;
-    margin: 0 0 -5rem 10rem;
+    margin: 0 2rem; /* Ajusta el margen según tus necesidades */
+    height: 5rem;
+    margin: 0 2rem; /* Ajusta el margen según tus necesidades */
+    transition: transform 0.3s ease; /* Agrega una transición suave */
+    z-index: 1
+}
+
+.images:hover {
+    transform: translateY(5px); /* Mueve la imagen hacia abajo */
 }
 
 .img-git{
-    margin-left: 45%;
+    margin-left: 85rem;
+    margin-top: 2rem;
+    z-index: 1
 }
 
 .left{
@@ -40,6 +52,11 @@ h2 {
     font-size: 5rem;
     background-color: #c7c7a3;
     color: white;
+    position: sticky; /* Mantén la posición fija */
+    width: 100%; /* Asegúrate de que ocupe el ancho completo */
+    top: 0; /* Ancla en la parte superior */
+    z-index: 2; /* Asegúrate de que esté por encima de otras capas */
+    margin-top: -3rem
 }
 
 html, body {
@@ -67,8 +84,8 @@ html, body {
 }
 
 .img-etrr:hover{
-    width: 30rem;
-    height: 20rem;
+    width: 27.25rem;
+    height: 17.25rem;
 }
 
 .best{
@@ -88,8 +105,8 @@ html, body {
 }
 
 .img-fce:hover{
-    width: 29rem;
-    height: 19rem;
+    width: 27.25rem;
+    height: 17.25rem;
 }
 
 .text-fce{
@@ -110,4 +127,24 @@ html, body {
 .text-gottert{
     text-align: center;
     font-size: 1.5rem;
+}
+
+.python {
+    height: 10rem;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    position: fixed;
+    right: -10rem; /* Initial position off-screen to the right */
+    z-index : 0;
+}
+
+.python.active {
+    transform: translateX(10rem); /* Move to the right */
+    opacity: 1;
+    position: fixed; /* Keep position fixed during the animation */
+    z-index: 1; /* Make sure it's above other elements */
+}
+
+.text-cisco{
+    font-size: 3rem;
 }
