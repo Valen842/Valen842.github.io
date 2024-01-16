@@ -81,6 +81,7 @@ html, body {
     border-radius: 10%;
     float: right;
     margin-top : -12rem;
+    transition: transform 0.3s ease;
 }
 
 .img-etrr:hover{
@@ -102,6 +103,7 @@ html, body {
     float: left;
     border-radius: 10%;
     margin-right: 5rem;
+    transition: transform 0.3s ease;
 }
 
 .img-fce:hover{
