@@ -1,6 +1,14 @@
 "use strict";
 
 window.addEventListener("load", () => {
+  mouseEffects();
+
+
+});
+
+
+
+function mouseEffects(){
   var etrr = document.querySelector(".img-etrr");
   var fce = document.querySelector(".img-fce");
   var gottert = document.querySelector(".img-gottert");
@@ -39,6 +47,4 @@ window.addEventListener("load", () => {
   cisco.addEventListener('mouseover', function () {
     pythonImage.classList.add('active');
 });
-
-
-});
+}
