@@ -3,13 +3,13 @@
 window.addEventListener("load", () => {
   var etrr = document.querySelector(".img-etrr");
   var fce = document.querySelector(".img-fce");
-  var gottert = document.querySelector("img-gottert");
-  var github = document.querySelector('img-git');
-  var linkedin = document.querySelector('img-in');
-  var twitter = document.querySelector('img-x');
+  var gottert = document.querySelector(".img-gottert");
+  var github = document.querySelector('.img-git');
+  var linkedin = document.querySelector('.img-in');
+  var twitter = document.querySelector('.img-x');
 
 
-  etrraddEventListener("click", function () {
+  etrr.addEventListener("click", function () {
     window.location.href = "http://www.tecnicarobertorocca.edu.ar/campana";
   });
 
