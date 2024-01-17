@@ -5,16 +5,18 @@ window.addEventListener("load", () => {
   var showAboutMe = true; 
   toggleSections();
   updateButtonText();
-
+  
   var toggleButton = document.querySelector(".botton");
 
   toggleButton.addEventListener("click", () => {
     showAboutMe = !showAboutMe; 
     toggleSections();
     updateButtonText(toggleButton); 
+
+    
+
+
   });
-
-
 
 
 
@@ -42,6 +44,7 @@ window.addEventListener("load", () => {
 
 
 function mouseEffects(){
+  follow();
   clicks();
   hover();
 }
@@ -94,5 +97,27 @@ function hover(){
 
   freeCodeCamp.addEventListener('mouseover', function () {
     freeCodeCampImage.classList.add('active');
+  });
+}
+
+
+function follow() {
+  const cursor = document.querySelector('.cursor');
+  const offset = 10; // Puedes ajustar este valor según sea necesario
+
+  document.addEventListener('mousemove', (e) => {
+      let x = e.pageX;
+      let y = e.pageY;
+
+      cursor.style.top = y + offset + 'px';
+      cursor.style.left = x + offset + 'px';
+  });
+
+  // Agregamos un evento para cambiar la apariencia al hacer clic
+  document.addEventListener('click', () => {
+      cursor.classList.add('clicked');
+      setTimeout(() => {
+          cursor.classList.remove('clicked');
+      }, 100);
   });
 }

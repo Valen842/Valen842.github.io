@@ -3,17 +3,12 @@
     font-family: "Segoe UI";
 }
 
-/* 
-"Clash Grotesk" = times new roman
-font-family: "Clash Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-*/
-.img-perfil{
-    border-radius: 50%;
-    height: 15rem;
-    margin-left: 20rem;
-    margin-top: 17rem;
-    z-index: 2;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
 }
 
 h1{
@@ -23,6 +18,45 @@ h1{
     margin-left: 15rem;
     z-index: 2;
 }
+
+.cursor {
+    z-index: 999;
+    position: absolute;
+    background-color: transparent; /* Hacemos el fondo transparente */
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid #d2b48c; /* Ajustamos el color del borde */
+    border-radius: 50%;
+    animation: colors 5s infinite;
+    transform: translate(-50%, -50%); /* Ajuste para centrar el cursor */
+    pointer-events: none; /* Evita que el cursor intercepte eventos de ratón */
+    transition: transform 0.2s ease-out; /* Agregamos una transición para el efecto de escala */
+}
+
+.cursor.clicked {
+    background-color: lightgray;
+    border: lightgray;
+}
+
+@keyframes colors {
+    0% { border-color: #d2b48c; }
+    50% { border-color: #654321; }
+    100% { border-color: #d2b48c; }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+.img-perfil{
+    border-radius: 50%;
+    height: 15rem;
+    margin-left: 20rem;
+    margin-top: 17rem;
+    z-index: 2;
+}
+
+
 .images {
     margin: 0 2rem; /* Ajusta el margen según tus necesidades */
     height: 4rem;
@@ -80,13 +114,6 @@ h2 {
     z-index: 2;
     margin-top: 3rem;
     margin-bottom: 2rem;
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    scroll-behavior: smooth;
 }
 
 .contenedor{
