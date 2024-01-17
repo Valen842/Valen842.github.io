@@ -45,18 +45,20 @@ h1{
 .botton {
     width: 6rem;
     height: 2rem;
-    border-radius: 25%;
+    font-size: 1.25rem;
     background-color: beige;
-    color: black;
+    color: rgb(0, 0, 0);
     border: black;
     cursor: pointer;
     z-index: 5;
-    margin-left: 50%;
+    margin-left: 48%;
     margin-bottom: 6.55rem;
 }
 
 
-
+.divider{
+    margin-bottom: 3rem;
+}
 
 -----------------cv-------------------------
 .cv{
@@ -69,15 +71,15 @@ h1{
 }
 
 h2 {
-    text-align: center;
+    text-align: left;
     font-size: 3rem;
-    background-color: #c7c7a3;
-    color: white;
+    color: black;
     position: sticky;
     width: 100%;
     top: 0;
     z-index: 2;
-    margin-top: -3rem
+    margin-top: 3rem;
+    margin-bottom: 2rem;
 }
 
 html, body {
@@ -92,8 +94,9 @@ html, body {
 }
 
 .title{
-    font-family: Anton, sans-serif;
+    font-family: sans-serif;
     font-size: 2rem;
+    font-weight: bolder;
 }
 
 .img-etrr{
@@ -143,7 +146,7 @@ html, body {
 }
 
 .img-gottert{
-    margin-left: 15rem;
+    margin-left: 25%;
 }
 
 .text-gottert{
@@ -169,7 +172,7 @@ html, body {
     margin-top: -4rem;
 }
 
-.text-cisco{
+.text-freeCodeCamp, .text-cisco{
     font-size: 3rem;
 }
 
@@ -186,11 +189,11 @@ html, body {
     transform: translateX(130%);
 }
 
-.text-freeCodeCamp{
-    font-size: 3rem;
-}
 
-----------------about-me-------
-.container{
-    margin: 0 10rem 0 10rem;
+---------------about-me--------
+
+.projects,
+.description,
+.projects {
+    font-size: 2rem;
 }
