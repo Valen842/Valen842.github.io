@@ -2,17 +2,22 @@
 
 window.addEventListener("load", () => {
   mouseEffects();
-  toggleSections(); // Asegura la visibilidad inicial
+  var showAboutMe = true; 
+  toggleSections();
+  updateButtonText();
 
-  var showAboutMe = true; // Variable de bandera
+  var toggleButton = document.querySelector(".botton");
 
-  // Listener para el botón de alternancia
-  var toggleButton = document.getElementById("toggleButton");
   toggleButton.addEventListener("click", () => {
-    showAboutMe = !showAboutMe; // Invierte el valor de la bandera
+    showAboutMe = !showAboutMe; 
     toggleSections();
-    updateButtonText(); // Actualiza el texto del botón
+    updateButtonText(toggleButton); 
   });
+
+
+
+
+
 
   function toggleSections() {
     var aboutMeSection = document.querySelector(".about-me");
@@ -28,9 +33,11 @@ window.addEventListener("load", () => {
   }
 
   function updateButtonText() {
+    var toggleButton = document.querySelector(".botton");
     toggleButton.textContent = showAboutMe ? "View CV" : "About Me";
   }
 });
+
 
 
 

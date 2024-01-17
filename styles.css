@@ -39,10 +39,21 @@ h1{
 .img-git{
     margin-left: 45%;
     margin-top: 2rem;
-    z-index: 1
+    z-index: 1;
 }
 
-
+.botton {
+    width: 6rem;
+    height: 2rem;
+    border-radius: 25%;
+    background-color: beige;
+    color: black;
+    border: black;
+    cursor: pointer;
+    z-index: 5;
+    margin-left: 50%;
+    margin-bottom: 6.55rem;
+}
 
 
 
@@ -62,10 +73,10 @@ h2 {
     font-size: 3rem;
     background-color: #c7c7a3;
     color: white;
-    position: sticky; /* Mantén la posición fija */
-    width: 100%; /* Asegúrate de que ocupe el ancho completo */
-    top: 0; /* Ancla en la parte superior */
-    z-index: 2; /* Asegúrate de que esté por encima de otras capas */
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 2;
     margin-top: -3rem
 }
 
@@ -77,7 +88,7 @@ html, body {
 }
 
 .contenedor{
-    margin: 10rem 25rem 0 25rem;
+    margin: 0 20rem 0 20rem;
 }
 
 .title{
@@ -95,8 +106,7 @@ html, body {
 }
 
 .img-etrr:hover{
-    width: 27.25rem;
-    height: 17.25rem;
+    transform: translateY(5px);
 }
 
 
@@ -118,8 +128,7 @@ html, body {
 }
 
 .img-fce:hover{
-    width: 27.25rem;
-    height: 17.25rem;
+    transform: translateY(5px); /* Mueve la imagen hacia abajo */
 }
 
 .text-fce{
@@ -179,4 +188,9 @@ html, body {
 
 .text-freeCodeCamp{
     font-size: 3rem;
+}
+
+----------------about-me-------
+.container{
+    margin: 0 10rem 0 10rem;
 }
