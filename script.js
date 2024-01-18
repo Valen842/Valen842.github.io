@@ -140,7 +140,9 @@ function scrolled() {
 
   sidebar.style.top = `calc(50% + ${scrollY}px)`;
 
-  var scrollThreshold = 20 * parseFloat(getComputedStyle(document.documentElement).fontSize); // Convertir '10rem' a píxeles
+  var anchoPantalla = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  if (anchoPantalla>=1600); var scrollThreshold = 20 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  if (anchoPantalla<1600); var scrollThreshold = 30 * parseFloat(getComputedStyle(document.documentElement).fontSize);
 
   if (scrollY >= scrollThreshold) {
     sidebar.style.left = '2rem';
