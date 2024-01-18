@@ -109,17 +109,19 @@ body {
 
 
 .botton {
-    width: 6rem;
-    height: 2rem;
-    font-size: 1.25rem;
+    width: 5rem;
+    height: 3rem;
+    font-size: 1rem;
     background-color: beige;
     color: rgb(0, 0, 0);
-    border: black;
+    border: 1px solid black; /* Añade '1px solid' para definir el estilo del borde */
     cursor: pointer;
     z-index: 5;
     margin-left: 48%;
     margin-bottom: 6.55rem;
+    border-radius: 3rem;
 }
+
 
 
 .divider{
