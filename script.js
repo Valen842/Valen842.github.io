@@ -13,10 +13,14 @@ window.addEventListener("load", () => {
     toggleSections();
     updateButtonText(toggleButton); 
 
-    
-
 
   });
+
+  window.addEventListener('scroll', scrolled);
+
+  scrolled();
+
+
 
 
 
@@ -103,7 +107,7 @@ function hover(){
 
 function follow() {
   const cursor = document.querySelector('.cursor');
-  const offset = 10; // Puedes ajustar este valor según sea necesario
+  const offset = 10;
 
   document.addEventListener('mousemove', (e) => {
       let x = e.pageX;
@@ -111,13 +115,36 @@ function follow() {
 
       cursor.style.top = y + offset + 'px';
       cursor.style.left = x + offset + 'px';
+
+      // Agrega el siguiente código para verificar si el cursor está sobre un elemento con hover
+      const hoveredElement = document.elementFromPoint(x, y);
+      if (hoveredElement && hoveredElement.classList.contains('hover-effect')) {
+          cursor.classList.add('hovered');
+      } else {
+          cursor.classList.remove('hovered');
+      }
   });
 
-  // Agregamos un evento para cambiar la apariencia al hacer clic
   document.addEventListener('click', () => {
       cursor.classList.add('clicked');
       setTimeout(() => {
           cursor.classList.remove('clicked');
       }, 100);
   });
+}
+
+
+function scrolled() {
+  var sidebar = document.querySelector('.sidebar');
+  var scrollY = window.scrollY;
+
+  sidebar.style.top = `calc(50% + ${scrollY}px)`;
+
+  var scrollThreshold = 20 * parseFloat(getComputedStyle(document.documentElement).fontSize); // Convertir '10rem' a píxeles
+
+  if (scrollY >= scrollThreshold) {
+    sidebar.style.left = '2rem';
+  } else {
+    sidebar.style.left = '-20rem';
+  }
 }

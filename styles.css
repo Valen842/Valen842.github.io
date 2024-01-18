@@ -9,6 +9,7 @@ html, body {
     padding: 0;
     font-family: Arial, sans-serif;
     scroll-behavior: smooth;
+    height: 200vh; 
 }
 
 h1{
@@ -27,10 +28,18 @@ h1{
     height: 2rem;
     border: 2px solid #d2b48c; /* Ajustamos el color del borde */
     border-radius: 50%;
-    animation: colors 5s infinite;
     transform: translate(-50%, -50%); /* Ajuste para centrar el cursor */
     pointer-events: none; /* Evita que el cursor intercepte eventos de ratón */
-    transition: transform 0.2s ease-out; /* Agregamos una transición para el efecto de escala */
+    transition: top 0.2s ease-out, left 0.2s ease-out, width 0.2s ease-out, height 0.2s ease-out; /* Transiciones para un efecto más suave */
+}
+
+.hover-effect:hover  {
+    width: 3rem;
+    height: 3rem;
+}
+
+.hover-effect {
+    cursor: pointer;
 }
 
 .cursor.clicked {
@@ -64,6 +73,7 @@ body {
     transition: transform 0.3s ease; /* Agrega una transición suave */
     z-index: 1;
     margin-bottom: 9%;
+    background: none;
 }
 
 .images:hover {
@@ -75,6 +85,28 @@ body {
     margin-top: 2rem;
     z-index: 1;
 }
+
+
+.sidebar {
+    margin-left: 3rem;
+    height: 30rem;
+    width: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: rgba(190, 190, 102, 0.361);
+    border-radius: 3rem 3rem 3rem 3rem;
+    top: 50%; 
+    transform: translateY(-50%);
+    transition: left 0.5s ease, top 0.0000000001s ease; 
+  }
+  
+  .sidebar > .images {
+    margin-bottom: 3rem;
+  }
+
 
 .botton {
     width: 6rem;
@@ -108,7 +140,7 @@ h2 {
     text-align: left;
     font-size: 3rem;
     color: black;
-    position: sticky;
+    position: relative;
     width: 100%;
     top: 0;
     z-index: 2;
@@ -217,10 +249,9 @@ h2 {
 }
 
 
----------------about-me--------
+/* ---------------about-me------------------- */
 
-.projects,
-.description,
-.projects {
+
+.projects, .description {
     font-size: 2rem;
 }
