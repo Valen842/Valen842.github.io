@@ -376,6 +376,24 @@
         z-index: 1;
     }
 
+    .img-gith{
+        margin-left: 45%;
+        margin-top: 2rem;
+        z-index: 1;
+    }
+
+    .img-gith,
+    .img-din,
+    .img-tw{
+        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
+        height: 4rem;
+        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
+        transition: transform 0.3s ease; /* Agrega una transición suave */
+        z-index: 1;
+        margin-bottom: 9%;
+        background: none;
+    }
+
 
     .sidebar {
         margin-left: 3rem;

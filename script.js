@@ -142,7 +142,7 @@ function scrolled() {
 
   let anchoPantalla = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
   let scrollThreshold = 20 * parseFloat(getComputedStyle(document.documentElement).fontSize);
-  let positionThreshold = -20; // Ajusta esta posición según tus necesidades
+  let positionThreshold = -20;
 
   if (scrollY >= scrollThreshold) {
     sidebar.style.left = '2rem';
