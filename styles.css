@@ -89,6 +89,24 @@
         z-index: 1;
     }
 
+    .img-gith{
+        margin-left: 45%;
+        margin-top: 2rem;
+        z-index: 1;
+    }
+
+    .img-gith,
+    .img-din,
+    .img-tw {
+        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
+        height: 4rem;
+        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
+        transition: transform 0.3s ease; /* Agrega una transición suave */
+        z-index: 1;
+        margin-bottom: 9%;
+        background: none;
+    }
+
 
     .sidebar {
         margin-left: 3rem;
@@ -537,7 +555,7 @@
     }
 }
 
-@media screen and(min-width: 200px) and (max-width: 800px){
+@media screen and (min-width: 200px) and (max-width: 896px){
     
     *{
         background-color: beige;
@@ -553,44 +571,11 @@
     }
 
     h1{
-        text-align: center;
+        text-align: left;
         font-size: 2rem;
-        margin-top: -14rem;
-        margin-left: 15rem;
-        z-index: 2;
-    }
-
-    .cursor {
-        z-index: 999;
-        position: absolute;
-        background-color: transparent; /* Hacemos el fondo transparente */
-        width: 2rem;
-        height: 2rem;
-        border: 2px solid #d2b48c; /* Ajustamos el color del borde */
-        border-radius: 50%;
-        transform: translate(-50%, -50%); /* Ajuste para centrar el cursor */
-        pointer-events: none; /* Evita que el cursor intercepte eventos de ratón */
-        transition: top 0.2s ease-out, left 0.2s ease-out, width 0.2s ease-out, height 0.2s ease-out; /* Transiciones para un efecto más suave */
-    }
-
-    .hover-effect:hover  {
-        width: 3rem;
-        height: 3rem;
-    }
-
-    .hover-effect {
-        cursor: pointer;
-    }
-
-    .cursor.clicked {
-        background-color: lightgray;
-        border: lightgray;
-    }
-
-    @keyframes colors {
-        0% { border-color: #d2b48c; }
-        50% { border-color: #654321; }
-        100% { border-color: #d2b48c; }
+        margin-top: 0;
+        margin-left: 2.2rem;
+        z-index: 1;
     }
 
     body {
@@ -600,20 +585,18 @@
 
     .img-perfil{
         border-radius: 50%;
-        height: 15rem;
-        margin-left: 20rem;
-        margin-top: 17rem;
+        height: 6rem;
+        margin-left: 9.5rem;
+        margin-top: 7rem;
         z-index: 2;
     }
 
 
     .images {
-        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
-        height: 4rem;
-        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
+        height: 2rem;
+        margin: 40% 1rem 40% 0; /* Ajusta el margen según tus necesidades */
         transition: transform 0.3s ease; /* Agrega una transición suave */
         z-index: 1;
-        margin-bottom: 9%;
         background: none;
     }
 
@@ -622,27 +605,39 @@
     }
 
     .img-git{
-        margin-left: 45%;
+        margin-left: 30%;
         margin-top: 2rem;
         z-index: 1;
     }
 
+    .img-tw,
+    .img-din,
+    .img-gith{
+        height: 2rem;
+        margin-right: 4rem;
+        background: none;
+    }
+
+    .img-gith{
+        margin-left: 3rem;
+    }
 
     .sidebar {
-        margin-left: 3rem;
-        height: 30rem;
-        width: 5rem;
+        height: 3rem;
+        width: 20rem;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
         position: absolute;
-        background: rgba(190, 190, 102, 0.361);
+        background: #817c45;
         border-radius: 3rem 3rem 3rem 3rem;
-        top: 50%; 
-        transform: translateY(-50%);
+        transform: translateY(750%);
         transition: left 0.5s ease, top 0.0000000001s ease; 
+        z-index: 99;
     }
+    
+    
     
     .sidebar > .images {
         margin-bottom: 3rem;
@@ -658,7 +653,7 @@
         border: 1px solid black; /* Añade '1px solid' para definir el estilo del borde */
         cursor: pointer;
         z-index: 5;
-        margin-left: 48%;
+        margin-left: 36%;
         margin-bottom: 6.55rem;
         border-radius: 3rem;
     }
@@ -676,12 +671,12 @@
 
 
     .left{
-        margin-left: -47.5rem;
+        display: none;
     }
 
     h2 {
         text-align: left;
-        font-size: 3rem;
+        font-size: 2rem;
         color: black;
         position: relative;
         width: 100%;
@@ -692,21 +687,21 @@
     }
 
     .contenedor{
-        margin: 0 20rem 0 20rem;
+        margin: 0 2rem 0 2rem;
     }
 
     .title{
         font-family: sans-serif;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: bolder;
     }
 
     .img-etrr{
-        width : 27rem;
-        height : 17rem;
+        width : 20rem;
+        height : 12rem;
         border-radius: 10%;
         float: right;
-        margin-top : -12rem;
+        margin-top : 0rem;
         transition: transform 0.3s ease;
     }
 
@@ -720,16 +715,18 @@
     }
 
     .fce{
-        margin-top: 10rem;
+        margin-top: 15rem;
     }
 
     .img-fce{
-        width: 27rem;
-        height: 17rem;
-        float: left;
+        width: 20rem;
+        height: 12rem;
+        float: center;
         border-radius: 10%;
         margin-right: 5rem;
+        margin-top: 17rem;
         transition: transform 0.3s ease;
+        margin-left: 2rem;
     }
 
     .img-fce:hover{
@@ -737,37 +734,33 @@
     }
 
     .text-fce{
-        margin-left: 32rem; 
+        margin-left: -0.5rem; 
         /* 32= width img(27) + margin (5rem) */
         margin-top: 2rem;
         position: absolute;
     }
 
     .laboral{
-        margin-top: 35rem;
+        margin-top: 3rem;
     }
 
     .img-gottert{
-        margin-left: 25%;
+        margin-left: 22.5%;
+        height: 7rem;
     }
 
     .text-gottert{
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .python {
-        height: 10rem;
-        opacity: 0;
-        transition: transform 0.75s ease, opacity 1.5s ease;
-        position: flex;   
-        margin-top: -10rem;
-        justify-content: top;
-    }
-
-    .python:hover, .python.active {
+        height: 2rem;
         opacity: 1;
-        transform: translateX(275%);
+        position: flex;   
+        justify-content: top;
+        margin-left: 40%;
+        margin-top: 2.5rem;
     }
 
     .margen{
@@ -775,20 +768,16 @@
     }
 
     .text-freeCodeCamp, .text-cisco{
-        font-size: 3rem;
+        font-size: 1rem;
+        margin-bottom: 3rem;
     }
 
     .freeCodeCamp {
-        height: 3.5rem;
-        opacity: 0;
-        transition: transform 0.75s ease, opacity 1.5s ease;
-        display: flex;   
-        margin-top: -8rem;
-    }
-
-    .freeCodeCamp.active {
+        height: 1.5rem;
         opacity: 1;
-        transform: translateX(130%);
+        display: flex;   
+        margin-top: 5rem;
+        margin-left: 20%;
     }
 
 
@@ -796,10 +785,10 @@
 
 
     .projects, .description {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .proyectos{
-        font-size: 1.125rem;
+        font-size: 1rem;
     }
 }

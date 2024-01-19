@@ -135,18 +135,18 @@ function follow() {
 
 
 function scrolled() {
-  var sidebar = document.querySelector('.sidebar');
-  var scrollY = window.scrollY;
+  let sidebar = document.querySelector('.sidebar');
+  let scrollY = window.scrollY;
 
   sidebar.style.top = `calc(50% + ${scrollY}px)`;
 
-  var anchoPantalla = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-  if (anchoPantalla>=1600); var scrollThreshold = 20 * parseFloat(getComputedStyle(document.documentElement).fontSize);
-  if (anchoPantalla<1600); var scrollThreshold = 30 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  let anchoPantalla = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  let scrollThreshold = 20 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  let positionThreshold = -20; // Ajusta esta posición según tus necesidades
 
   if (scrollY >= scrollThreshold) {
     sidebar.style.left = '2rem';
   } else {
-    sidebar.style.left = '-20rem';
+    sidebar.style.left = `${positionThreshold}rem`;
   }
 }
