@@ -1,26 +1,122 @@
-@media screen and (min-width: 1600px) {
+/* css reset */
+* {
+    font-family: 'Open Sans', sans-serif;
+    cursor: none;  /* Esta línea hace que el cursor sea invisible */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
 
-    *{
-        background-color: beige;
-        font-family: "Segoe UI";
-    }
+    text-wrap: balance;
+    color: var(--heading);
+}
 
+h2, h3{
+    text-wrap: balance;
+    color: var(--titles)
+}
 
-    html, body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        scroll-behavior: smooth;
-        height: 200vh; 
-    }
+p {
+    text-wrap: pretty;
+}
 
-    h1{
-        text-align: center;
-        font-size: 5rem;
-        margin-top: -14rem;
-        margin-left: 15rem;
-        z-index: 2;
-    }
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --transition-time: 0.3s;
+    --primary-color: beige;
+    --secondary-color: black;
+    --heading: var(--primary-color);
+    --background-sidebar: black;
+    --titles: #78664f;
+    --cursor-color: #d2b48c;
+    --text: #FFF;
+    --refs: #000;
+  }
+  
+  :root[data-theme="dark"] {
+    --primary-color: black;
+    --secondary-color: beige;
+    --background-sidebar: beige;
+    --titles: #78664f;
+    --heading: var(--primary-color);
+    --cursor-color: rgb(105, 100, 100);
+    --text: black;
+    --refs: var(--background-sidebar);
+  }
+body {
+    background-color: var(--secondary-color);
+    width: 60vw;
+    margin: 0 auto;
+    color: var(--text);
+    transition: background-color var(--transition-time), color var(--transition-time);
+}
+
+*::selection {
+    background-color: var(--primary-color);
+    color: var(--text);
+}
+
+.cursor {
+    z-index: 999;
+    position: absolute;
+    background-color: transparent; /* Hacemos el fondo transparente */
+    width: 4vh;
+    height: 4vh;
+    border: 2px solid var(--cursor-color); /* Ajustamos el color del borde */
+    border-radius: 50%;
+    transform: translate(-50%, -50%); /* Ajuste para centrar el cursor */
+    pointer-events: none; /* Evita que el cursor intercepte eventos de ratón */
+    transition: top 0.2s ease-out, left 0.2s ease-out, width 0.2s ease-out, height 0.2s ease-out; /* Transiciones para un efecto más suave */
+}
+
+.hover-effect:hover  {
+    width: 3rem;
+    height: 3rem;
+}
+
+.hover-effect {
+    cursor: pointer;
+}
+
+.cursor.clicked {
+    background-color: lightgray;
+    border: lightgray;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+header div {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+header div img {
+    border-radius: 50%;
+    width: 250px;
+    border: 6px solid var(--primary-color);
+    transition: transform .3s;
+}
+header div img:hover {
+    transform: scale(1.1);
+}
+
+header div h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: auto;
+}
 
     .cursor {
         z-index: 999;
@@ -49,764 +145,156 @@
         border: lightgray;
     }
 
-    @keyframes colors {
-        0% { border-color: #d2b48c; }
-        50% { border-color: #654321; }
-        100% { border-color: #d2b48c; }
-    }
 
-    body {
-        margin: 0;
-        padding: 0;
-    }
+.redes-sociales {
+    display: flex;
+    background-color: var(--background-sidebar);
+    padding: 10vh;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 20px;
+    gap: 10vh;
+    transition-duration: .2s;
+    transition-property: gap;
+    transition-timing-function: ease-in;
+}
+.redes-sociales svg {
+    color: var(--text);
+    opacity: 0.3;
+    width: 8vh;
+    height: 8vh;
+    transition-property: opacity;
+    transition-duration: .6s;
+}
+.redes-sociales svg:hover{
+    opacity: 1;
+}
 
-    .img-perfil{
-        border-radius: 50%;
-        height: 15rem;
-        margin-left: 20rem;
-        margin-top: 17rem;
-        z-index: 2;
-    }
+.redes-sociales button {
+    background-color: transparent;
+    border: none;
+}
 
-
-    .images {
-        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
-        height: 4rem;
-        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
-        transition: transform 0.3s ease; /* Agrega una transición suave */
-        z-index: 1;
-        margin-bottom: 9%;
-        background: none;
-    }
-
-    .images:hover {
-        transform: translateY(5px); /* Mueve la imagen hacia abajo */
-    }
-
-    .img-git{
-        margin-left: 45%;
-        margin-top: 2rem;
-        z-index: 1;
-    }
-
-    .img-gith{
-        margin-left: 45%;
-        margin-top: 2rem;
-        z-index: 1;
-    }
-
-    .img-gith,
-    .img-din,
-    .img-tw {
-        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
-        height: 4rem;
-        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
-        transition: transform 0.3s ease; /* Agrega una transición suave */
-        z-index: 1;
-        margin-bottom: 9%;
-        background: none;
-    }
-
-
-    .sidebar {
-        margin-left: 3rem;
-        height: 30rem;
-        width: 5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        background: rgba(190, 190, 102, 0.361);
-        border-radius: 3rem 3rem 3rem 3rem;
-        top: 50%; 
-        transform: translateY(-50%);
-        transition: left 0.5s ease, top 0.0000000001s ease; 
-    }
-    
-    .sidebar > .images {
-        margin-bottom: 3rem;
-    }
-
-
-    .botton {
-        width: 5rem;
-        height: 3rem;
-        font-size: 1rem;
-        background-color: beige;
-        color: rgb(0, 0, 0);
-        border: 1px solid black; /* Añade '1px solid' para definir el estilo del borde */
-        cursor: pointer;
-        z-index: 5;
-        margin-left: 48%;
-        margin-bottom: 6.55rem;
-        border-radius: 3rem;
-    }
-
-
-
-    .divider{
-        margin-bottom: 3rem;
-    }
-
-    -----------------cv-------------------------
-    .cv{
-        display: none;
-    }
-
-
-    .left{
-        margin-left: -47.5rem;
-    }
-
-    h2 {
-        text-align: left;
-        font-size: 3rem;
-        color: black;
-        position: relative;
-        width: 100%;
-        top: 0;
-        z-index: 2;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-    }
-
-    .contenedor{
-        margin: 0 20rem 0 20rem;
-    }
-
-    .title{
-        font-family: sans-serif;
-        font-size: 2rem;
-        font-weight: bolder;
-    }
-
-    .img-etrr{
-        width : 27rem;
-        height : 17rem;
-        border-radius: 10%;
-        float: right;
-        margin-top : -12rem;
-        transition: transform 0.3s ease;
-    }
-
-    .img-etrr:hover{
-        transform: translateY(5px);
-    }
-
-
-    .best{
-        color: gold;
-    }
-
-    .fce{
-        margin-top: 10rem;
-    }
-
-    .img-fce{
-        width: 27rem;
-        height: 17rem;
-        float: left;
-        border-radius: 10%;
-        margin-right: 5rem;
-        transition: transform 0.3s ease;
-    }
-
-    .img-fce:hover{
-        transform: translateY(5px); /* Mueve la imagen hacia abajo */
-    }
-
-    .text-fce{
-        margin-left: 32rem; 
-        /* 32= width img(27) + margin (5rem) */
-        margin-top: 2rem;
-        position: absolute;
-    }
-
-    .laboral{
-        margin-top: 35rem;
-    }
-
-    .img-gottert{
-        margin-left: 25%;
-    }
-
-    .text-gottert{
-        text-align: center;
-        font-size: 1.5rem;
-    }
-
-    .python {
-        height: 10rem;
-        opacity: 0;
-        transition: transform 0.75s ease, opacity 1.5s ease;
-        position: flex;   
-        margin-top: -10rem;
-        justify-content: top;
-    }
-
-    .python:hover, .python.active {
-        opacity: 1;
-        transform: translateX(275%);
-    }
-
-    .margen{
-        margin-top: -4rem;
-    }
-
-    .text-freeCodeCamp, .text-cisco{
-        font-size: 3rem;
-    }
-
-    .freeCodeCamp {
-        height: 3.5rem;
-        opacity: 0;
-        transition: transform 0.75s ease, opacity 1.5s ease;
-        display: flex;   
-        margin-top: -8rem;
-    }
-
-    .freeCodeCamp.active {
-        opacity: 1;
-        transform: translateX(130%);
-    }
-
-
-    /* ---------------about-me------------------- */
-
-
-    .projects, .description {
-        font-size: 2rem;
-    }
-
-    .proyectos{
-        font-size: 1.125rem;
-    }
+.redes-sociales.left {
+    position: fixed;
+    left: -20vh;
+    top: 6%;
+    flex-direction: column;
+    gap: 10vh;
+    transform: translateX(120px);
+    transition: transform 0.3s ease-in;
 }
 
 
-@media screen and (min-width: 1000px) and (max-width: 1599px){
-    
-    *{
-        background-color: beige;
-        font-family: "Segoe UI";
-    }
+.redes-sociales.left svg {
+    width: 40px;
+}
 
+a.ref {
+    margin-bottom: 30px;
+    display: block;
+    background-color: var(--primary-color);
+    color: var(--refs);
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    text-decoration: none;
+}
 
-    html, body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        scroll-behavior: smooth;
-        height: 200vh; 
-    }
+section {
+    padding: 50px 0;
+}
 
-    h1{
-        text-align: center;
-        font-size: 5rem;
-        margin-top: -14rem;
-        margin-left: 18rem;
-        z-index: 2;
-    }
+section p {
+    margin: 10px 0 30px;
+    width: 90%;
+}
 
-    .cursor {
-        z-index: 999;
-        position: absolute;
-        background-color: transparent; /* Hacemos el fondo transparente */
-        width: 2rem;
-        height: 2rem;
-        border: 2px solid #d2b48c; /* Ajustamos el color del borde */
-        border-radius: 50%;
-        transform: translate(-50%, -50%); /* Ajuste para centrar el cursor */
-        pointer-events: none; /* Evita que el cursor intercepte eventos de ratón */
-        transition: top 0.2s ease-out, left 0.2s ease-out, width 0.2s ease-out, height 0.2s ease-out; /* Transiciones para un efecto más suave */
-    }
+section ul {
+    margin-left: 50px;
+    gap: 10px;
+}
 
-    .hover-effect:hover  {
-        width: 3rem;
-        height: 3rem;
-    }
+section#aboutme ul {
+    list-style: none;
+}
 
-    .hover-effect {
-        cursor: pointer;
-    }
+section#CV h2 {
+    margin-bottom: 20px;
+}
+section#CV h3, ul li {
+    margin-bottom: 10px;
+}
 
-    .cursor.clicked {
-        background-color: lightgray;
-        border: lightgray;
-    }
+section#CV .card{
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: space-between;
+    gap: 30px;
+}
+section#CV .card#freecodecamp {
+    margin-top: 50px;
+}
 
-    @keyframes colors {
-        0% { border-color: #d2b48c; }
-        50% { border-color: #654321; }
-        100% { border-color: #d2b48c; }
-    }
+section#CV .card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
 
-    body {
-        margin: 0;
-        padding: 0;
-    }
+section#CV .card img {
+    width: 60vh;
+    background-color: rgb(156, 156, 156);
+    border-radius: 10px;
+    padding: 15px;
+}
+section#CV .card img#freecodecamp {
+    width: 500px;
+}
 
-    .img-perfil{
-        border-radius: 50%;
-        height: 15rem;
-        margin-left: 5rem;
-        margin-top: 8rem;
-        z-index: 2;
-    }
+/* Media queries */
 
-
-    .images {
-        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
-        height: 4rem;
-        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
-        transition: transform 0.3s ease; /* Agrega una transición suave */
-        z-index: 1;
-        margin-bottom: 9%;
-        background: none;
-    }
-
-    .images:hover {
-        transform: translateY(5px); /* Mueve la imagen hacia abajo */
-    }
-
-    .img-git{
-        margin-left: 45%;
-        margin-top: 2rem;
-        z-index: 1;
-    }
-
-    .img-gith{
-        margin-left: 45%;
-        margin-top: 2rem;
-        z-index: 1;
-    }
-
-    .img-gith,
-    .img-din,
-    .img-tw{
-        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
-        height: 4rem;
-        margin: 0 2rem; /* Ajusta el margen según tus necesidades */
-        transition: transform 0.3s ease; /* Agrega una transición suave */
-        z-index: 1;
-        margin-bottom: 9%;
-        background: none;
-    }
-
-
-    .sidebar {
-        margin-left: 3rem;
-        height: 30rem;
-        width: 5rem;
-        display: flex;
+@media (max-width: 992px) {
+    section#CV .card {
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        background: rgba(190, 190, 102, 0.361);
-        border-radius: 3rem 3rem 3rem 3rem;
-        top: 50%; 
-        transform: translateY(-50%);
-        transition: left 0.5s ease, top 0.0000000001s ease; 
-    }
-    
-    .sidebar > .images {
-        margin-bottom: 3rem;
-    }
-
-
-    .botton {
-        width: 5rem;
-        height: 3rem;
-        font-size: 1rem;
-        background-color: beige;
-        color: rgb(0, 0, 0);
-        border: 1px solid black; /* Añade '1px solid' para definir el estilo del borde */
-        cursor: pointer;
-        z-index: 5;
-        margin-left: 48%;
-        margin-bottom: 6.55rem;
-        border-radius: 3rem;
-    }
-
-
-
-    .divider{
-        margin-bottom: 3rem;
-    }
-
-    -----------------cv-------------------------
-    .cv{
-        display: none;
-    }
-
-
-    .left{
-        margin-left: -47.5rem;
-    }
-
-    h2 {
-        text-align: left;
-        font-size: srem;
-        color: black;
-        position: relative;
-        width: 100%;
-        top: 0;
-        z-index: 2;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .contenedor{
-        margin: 0 2rem 0 15rem;
-    }
-
-    .title{
-        font-family: sans-serif;
-        font-size: 2rem;
-        font-weight: bolder;
-    }
-
-    .img-etrr{
-        width : 25rem;
-        height : 15rem;
-        border-radius: 10%;
-        float: right;
-        margin-top : -12rem;
-        margin-left: 17rem;
-        transition: transform 0.3s ease;
-    }
-
-    .img-etrr:hover{
-        transform: translateY(5px);
-    }
-
-
-    .best{
-        color: gold;
-    }
-
-    .fce{
-        margin-top: 10rem;
-    }
-
-    .img-fce{
-        width: 25rem;
-        height: 15rem;
-        float: left;
-        border-radius: 10%;
-        margin-right: 5rem;
-        transition: transform 0.3s ease;
-    }
-
-    .img-fce:hover{
-        transform: translateY(5px); /* Mueve la imagen hacia abajo */
-    }
-
-    .text-fce{
-        margin-left: 32rem; 
-        /* 32= width img(27) + margin (5rem) */
-        margin-top: -1rem;
-        position: absolute;
-    }
-
-    .laboral{
-        margin-top: 30rem;
-    }
-
-    .img-gottert{
-        margin-left: 20%;
-        height: 20rem;
-    }
-
-    .text-gottert{
-        text-align: center;
-        font-size: 1.5rem;
-    }
-
-    .python {
-        height: 7.5rem;
-        opacity: 0;
-        transition: transform 0.75s ease, opacity 1.5s ease;
-        position: flex;   
-        margin-top: -10rem;
-        justify-content: top;
-    }
-
-    .python:hover, .python.active {
-        opacity: 1;
-        transform: translateX(275%);
-    }
-
-    .margen{
-        margin-top: -4rem;
-    }
-
-    .text-freeCodeCamp, .text-cisco{
-        font-size: 2rem;
-    }
-
-    .freeCodeCamp {
-        height: 2.5rem;
-        opacity: 0;
-        transition: transform 0.75s ease, opacity 1.5s ease;
-        display: flex;   
-        margin-top: -6rem;
-    }
-
-    .freeCodeCamp.active {
-        opacity: 1;
-        transform: translateX(130%);
-    }
-
-
-    /* ---------------about-me------------------- */
-
-
-    .projects, .description {
-        font-size: 2rem;
-    }
-
-    .proyectos{
-        font-size: 1.125rem;
     }
 }
 
-@media screen and (min-width: 200px) and (max-width: 896px){
-    
-    *{
-        background-color: beige;
-        font-family: "Segoe UI";
-    }
-
-
-    html, body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        scroll-behavior: smooth;
-    }
-
-    h1{
-        text-align: left;
-        font-size: 2rem;
-        margin-top: 0;
-        margin-left: 2.2rem;
-        z-index: 1;
-    }
-
+@media (max-width: 768px) {
     body {
-        margin: 0;
-        padding: 0;
+        width: 90vw;
+        margin-bottom: 100px;
     }
 
-    .img-perfil{
-        border-radius: 50%;
-        height: 6rem;
-        margin-left: 9.5rem;
-        margin-top: 7rem;
-        z-index: 2;
-    }
-
-
-    .images {
-        height: 2rem;
-        margin: 40% 1rem 40% 0; /* Ajusta el margen según tus necesidades */
-        transition: transform 0.3s ease; /* Agrega una transición suave */
-        z-index: 1;
-        background: none;
-    }
-
-    .images:hover {
-        transform: translateY(5px); /* Mueve la imagen hacia abajo */
-    }
-
-    .img-git{
-        margin-left: 30%;
-        margin-top: 2rem;
-        z-index: 1;
-    }
-
-    .img-tw,
-    .img-din,
-    .img-gith{
-        height: 2rem;
-        margin-right: 4rem;
-        background: none;
-    }
-
-    .img-gith{
-        margin-left: 3rem;
-    }
-
-    .sidebar {
-        height: 3rem;
-        width: 20rem;
-        display: flex;
+    .redes-sociales.left {
+        gap: 30px;
+        bottom: -100px;
+        top: auto;
+        left: auto;
         flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        background: #817c45;
-        border-radius: 3rem 3rem 3rem 3rem;
-        transform: translateY(750%);
-        transition: left 0.5s ease, top 0.0000000001s ease; 
-        z-index: 99;
+
+        transform: translateY(-130px);
     }
-    
-    
-    
-    .sidebar > .images {
-        margin-bottom: 3rem;
+}
+
+@media (max-width: 576px) {
+    header {
+        gap: 50px;
+        height: 100vh;
     }
 
-
-    .botton {
-        width: 5rem;
-        height: 3rem;
-        font-size: 1rem;
-        background-color: beige;
-        color: rgb(0, 0, 0);
-        border: 1px solid black; /* Añade '1px solid' para definir el estilo del borde */
-        cursor: pointer;
-        z-index: 5;
-        margin-left: 36%;
-        margin-bottom: 6.55rem;
-        border-radius: 3rem;
+    header div {
+        flex-direction: column;
     }
 
-
-
-    .divider{
-        margin-bottom: 3rem;
-    }
-
-    -----------------cv-------------------------
-    .cv{
-        display: none;
-    }
-
-
-    .left{
-        display: none;
-    }
-
-    h2 {
-        text-align: left;
-        font-size: 2rem;
-        color: black;
-        position: relative;
+    section#CV .card img {
         width: 100%;
-        top: 0;
-        z-index: 2;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
     }
 
-    .contenedor{
-        margin: 0 2rem 0 2rem;
-    }
-
-    .title{
-        font-family: sans-serif;
-        font-size: 1.5rem;
-        font-weight: bolder;
-    }
-
-    .img-etrr{
-        width : 20rem;
-        height : 12rem;
-        border-radius: 10%;
-        float: right;
-        margin-top : 0rem;
-        transition: transform 0.3s ease;
-    }
-
-    .img-etrr:hover{
-        transform: translateY(5px);
-    }
-
-
-    .best{
-        color: gold;
-    }
-
-    .fce{
-        margin-top: 15rem;
-    }
-
-    .img-fce{
-        width: 20rem;
-        height: 12rem;
-        float: center;
-        border-radius: 10%;
-        margin-right: 5rem;
-        margin-top: 17rem;
-        transition: transform 0.3s ease;
-        margin-left: 2rem;
-    }
-
-    .img-fce:hover{
-        transform: translateY(5px); /* Mueve la imagen hacia abajo */
-    }
-
-    .text-fce{
-        margin-left: -0.5rem; 
-        /* 32= width img(27) + margin (5rem) */
-        margin-top: 2rem;
-        position: absolute;
-    }
-
-    .laboral{
-        margin-top: 3rem;
-    }
-
-    .img-gottert{
-        margin-left: 22.5%;
-        height: 7rem;
-    }
-
-    .text-gottert{
-        text-align: center;
-        font-size: 1.2rem;
-    }
-
-    .python {
-        height: 2rem;
-        opacity: 1;
-        position: flex;   
-        justify-content: top;
-        margin-left: 40%;
-        margin-top: 2.5rem;
-    }
-
-    .margen{
-        margin-top: -4rem;
-    }
-
-    .text-freeCodeCamp, .text-cisco{
-        font-size: 1rem;
-        margin-bottom: 3rem;
-    }
-
-    .freeCodeCamp {
-        height: 1.5rem;
-        opacity: 1;
-        display: flex;   
-        margin-top: 5rem;
-        margin-left: 20%;
-    }
-
-
-    /* ---------------about-me------------------- */
-
-
-    .projects, .description {
-        font-size: 1.5rem;
-    }
-
-    .proyectos{
-        font-size: 1rem;
+    section#CV .card img#freecodecamp {
+        width: 100%;
     }
 }
