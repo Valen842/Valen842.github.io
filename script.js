@@ -1,110 +1,68 @@
-"use strict";
+// function to get DOM elements
+const $ = selector => document.querySelector(selector)
 
-window.addEventListener("load", () => {
-  mouseEffects();
-  var showAboutMe = true; 
-  toggleSections();
-  updateButtonText();
-  
-  var toggleButton = document.querySelector(".botton");
+// constants
+const HOVERED_TAGS = ['A', 'svg', 'path'];
+const OFFSET_NAV = 70;
+const DARK_THEME = 'dark';
+const LIGHT_THEME = 'light';
 
-  toggleButton.addEventListener("click", () => {
-    showAboutMe = !showAboutMe; 
-    toggleSections();
-    updateButtonText(toggleButton); 
+// DOM elements
+const CURSOR = $('#cursor');
+let showCursor = false;
 
+const SOCIALS = $('.redes-sociales');
+const HEADER = $('header');
+const THEME_BUTTON = $('#theme-button');
 
-  });
+// helper functions
+function isPartiallyInViewport(element) {
+  var rect = element.getBoundingClientRect();
+  var windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+  var vertInView = (rect.top <= windowHeight) && ((rect.top + rect.height - OFFSET_NAV) >= 0);
+  return vertInView
+}
 
-  window.addEventListener('scroll', scrolled);
+// SVGs
+const sunSVG = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>'
+const moonSVG = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg>'
 
-  scrolled();
+// theme switch
+function getInitialTheme() {
+  const darkIsPreferred = window.matchMedia('(prefers-color-scheme: dark)').matches
+  return darkIsPreferred ? DARK_THEME : LIGHT_THEME
+}
+let theme = getInitialTheme();
 
+if (theme === DARK_THEME) {
+  document.documentElement.setAttribute('data-theme', DARK_THEME)
+  THEME_BUTTON.innerHTML = sunSVG
+} else {
+  document.documentElement.setAttribute('data-theme', LIGHT_THEME)
+  THEME_BUTTON.innerHTML = moonSVG
+}
 
-
-
-
-
-  function toggleSections() {
-    var aboutMeSection = document.querySelector(".about-me");
-    var cvSection = document.querySelector(".cv");
-
-    if (showAboutMe) {
-      aboutMeSection.style.display = "block";
-      cvSection.style.display = "none";
-    } else {
-      aboutMeSection.style.display = "none";
-      cvSection.style.display = "block";
-    }
+function setTheme () {
+  if (theme === LIGHT_THEME) {
+    document.documentElement.setAttribute('data-theme', DARK_THEME)
+    THEME_BUTTON.innerHTML = sunSVG
+    theme = DARK_THEME
+  } else {
+    document.documentElement.setAttribute('data-theme', LIGHT_THEME)
+    THEME_BUTTON.innerHTML = moonSVG
+    theme = LIGHT_THEME
   }
+}
+THEME_BUTTON.addEventListener('click', setTheme)
 
-  function updateButtonText() {
-    var toggleButton = document.querySelector(".botton");
-    toggleButton.textContent = showAboutMe ? "View CV" : "About Me";
-  }
-});
-
-
-
-
-function mouseEffects(){
-  follow();
-  clicks();
-  hover();
+// handler functions
+function mouseout () {
+  CURSOR.style.display = 'none';
+  showCursor = false
 }
 
 
-
-function clicks(){
-  var etrr = document.querySelector(".img-etrr");
-  var fce = document.querySelector(".img-fce");
-  var gottert = document.querySelector(".img-gottert");
-  var github = document.querySelector('.img-git');
-  var linkedin = document.querySelector('.img-in');
-  var twitter = document.querySelector('.img-x');
-
-  etrr.addEventListener("click", function () {
-    window.location.href = "http://www.tecnicarobertorocca.edu.ar/campana";
-  });
-
-  fce.addEventListener("click", function () {
-    window.location.href = "https://www.cambridgeenglish.org/exams-and-tests/first/";
-  });
-
-  gottert.addEventListener("click", function () {
-    window.location.href = "https://www.gottert.com.ar/";
-  });
-
-  github.addEventListener("click", function () {
-    window.location.href = "https://github.com/Valen842";
-  });
-
-  linkedin.addEventListener('click', function(){
-    window.location.href = 'https://www.linkedin.com/in/valentino-bisbano-068413259/';
-  });
-
-  twitter.addEventListener('click', function(){
-    window.location.href = 'https://twitter.com/Valenbisbano';
-  });
-}
-
-function hover(){
-  var cisco = document.querySelector('.text-cisco');  
-  var pythonImage = document.querySelector('.python');
-  var freeCodeCampImage = document.querySelector('.freeCodeCamp');
-  var freeCodeCamp = document.querySelector('.text-freeCodeCamp');
- 
-
-  cisco.addEventListener('mouseover', function () {
-    pythonImage.classList.add('active');
-  });
-
-  freeCodeCamp.addEventListener('mouseover', function () {
-    freeCodeCampImage.classList.add('active');
-  });
-}
-
-
+follow();
 function follow() {
   const cursor = document.querySelector('.cursor');
   const offset = 10;
@@ -132,21 +90,31 @@ function follow() {
       }, 100);
   });
 }
+function mousedown (e) {
+  CURSOR.classList.add('clicked');
+}
 
+function mouseup (e) {
+  CURSOR.classList.remove('clicked');
+}
 
-function scrolled() {
-  let sidebar = document.querySelector('.sidebar');
-  let scrollY = window.scrollY;
-
-  sidebar.style.top = `calc(50% + ${scrollY}px)`;
-
-  let anchoPantalla = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-  let scrollThreshold = 20 * parseFloat(getComputedStyle(document.documentElement).fontSize);
-  let positionThreshold = -20;
-
-  if (scrollY >= scrollThreshold) {
-    sidebar.style.left = '2rem';
-  } else {
-    sidebar.style.left = `${positionThreshold}rem`;
+function scroll () {
+  if (!isPartiallyInViewport(HEADER) && !SOCIALS.classList.contains('left')) {
+    SOCIALS.classList.add('left');
+  } else if (isPartiallyInViewport(HEADER) && SOCIALS.classList.contains('left')) {
+    SOCIALS.classList.remove('left');
   }
 }
+
+
+// event listeners
+
+// if the device not have mouse
+if (!navigator.maxTouchPoints) {
+  window.addEventListener('mouseout', mouseout)
+  follow();
+  window.addEventListener('mousedown', mousedown)
+  window.addEventListener('mouseup', mouseup)
+}
+
+window.addEventListener('scroll', scroll)
