@@ -47,7 +47,8 @@ Computers media query
         --header-size: 100vh;
         --header-gap: 100px; 
         --width-header: 250px;
-        --border-header: 6px;
+        --margin-left-profile-picture: 0;
+        --redes-sociales-gap: 6rem;        --border-header: 6px;
         --header-font-size: 3rem;
         --redes-sociales-dimensions: 50px;
         --redes-sociales-left: -60px;
@@ -69,14 +70,14 @@ Computers media query
         --section-cv-card-border: 3px solid var(--primary-color);
         --section-cv-card-img-width: 300px;
         --section-cv-card-img-border-radius: 10px;
-        --section-cv-card-img-freecodecamp-width: 500px;
+        --section-cv-card-img-freecodecamp-width: 0px;
     }
 }
 
 /* 
 iPad media query
 */
-@media (max-width: 1024px) and (min-width: 768px) {
+@media (max-width: 1024px) and (min-width: 1000px) {
     :root{
         /* 
         Cursor
@@ -95,12 +96,14 @@ iPad media query
         --width-header: 350px;
         --border-header: 6px;
         --header-font-size: 3rem;
+        --margin-left-profile-picture: 0;
         /* 
         Social media
         */
+        --redes-sociales-gap: 6rem;
         --redes-sociales-dimensions: 50px;
         --redes-sociales-left: -60px;
-        --redes-sociales-top: 7vh;
+        --redes-sociales-top: 20vh;
         --redes-sociales-left-svg: 40px;
         --a-margin-bottom: 30px;
         --a-padding-border: 10px;
@@ -118,7 +121,88 @@ iPad media query
         --section-cv-card-border: 3px solid var(--primary-color);
         --section-cv-card-img-width: 300px;
         --section-cv-card-img-border-radius: 10px;
-        --section-cv-card-img-freecodecamp-width: 500px;
+        --section-cv-card-img-freecodecamp-width: 300px;
+    }
+}
+
+/* 
+Cellphone media query
+*/
+@media (max-width: 999px) and (min-width: 0px) {
+    :root{
+        /* 
+        Cursor
+        */
+        --cursor-color: transparent;
+        --cursor-border: transparent;
+        --color-cursor-clicked: none;
+        --cursor-values: 3rem;
+        --hover-effects: 3rem;
+        /* 
+        Body & Header
+        */
+        --body-size: 100vh;
+        --header-size: 5vh;
+        --header-gap: 10px; 
+        --width-header: 20vh;
+        --border-header: 6px;
+        --header-font-size: 3rem;
+        --margin-left-profile-picture:80px;
+        /* 
+        Social media
+        */
+        --redes-sociales-gap: 1.5rem;
+        --redes-sociales-dimensions: 50px;
+        --redes-sociales-left: 100vh;
+        --redes-sociales-top: 20vh;
+        --redes-sociales-left-svg: 40px;
+        /* 
+        Link buttons
+        */
+        --a-margin-bottom: 30px;
+        --a-padding-border: 10px;
+        /* 
+        Unsigned list
+        */
+        --section-ul-gap: var(--a-padding-border);
+        /* 
+        CV section
+        */
+        --section-cv: var(--a-padding-border);
+        --section-padding: 50px;
+        --section-margin: var(--section-padding);
+        --section-cv-margin-article: var(--section-padding);
+        --section-p-margin: 10px 0 30px;
+        --section-p-width: 90%;
+        --section-gap: 40px;
+        /* 
+        CV Card
+        */
+        --section-cv-card-width: 95%;
+        --section-cv-card-gap: 20px;
+        --section-cv-card-box-shadow: 10px 10px 0px var(--primary-color);
+        --section-cv-card-border: 3px solid var(--primary-color);
+        --section-cv-card-img-width: 3px;
+        --section-cv-card-img-border-radius: 10px;
+        --section-cv-card-img-freecodecamp-width: 200px;
+        overflow: scroll; 
+
+        .fce-img {
+            width: 180px;
+            height: 180px;
+            margin: 25vh -10vh 0 2vh;
+            justify-content: center;
+        }
+        .text-fce {
+            margin-left: -20vh;
+        }
+        .freecodecamp-img {
+            margin: 15vh -20vh 0 0;
+        }
+        .freecodecamp-txt {
+            margin-left: -15vh;
+            margin-right: 20vh;
+        }
     }
 }
 
@@ -135,6 +219,10 @@ body {
     background-color: var(--primary-color);
     color: var(--text);
 }
+
+.profile-picture {
+    margin-left: var(--margin-left-profile-picture);
+}	
 
 .cursor {
     z-index: 999;
@@ -201,7 +289,7 @@ header div h1 {
     align-items: center;
     width: fit-content;
     margin: 0 auto;
-    gap: var(--border-header);
+    gap: var(--redes-sociales-gap);
     transition-duration: .6s;
     transition-property: gap;
     transition-timing-function: ease-in;
@@ -209,6 +297,7 @@ header div h1 {
 .redes-sociales svg {
     color: var(--text);
     opacity: 0.3;
+    gap: var(--redes-sociales-gap);
     width: var(--redes-sociales-dimensions);
     height: var(--redes-sociales-dimensions);
     transition-property: opacity;
@@ -308,10 +397,12 @@ section#CV .card img {
 }
 section#CV .card img#freecodecamp {
     width: var(--section-cv-card-img-freecodecamp-width);
+    height: 0 auto;
 }
 :root[data-theme="dark"] section#CV .card img#freecodecamp {
     filter: invert(1);
 }
+
 
 /* Media queries */
 @media (max-width: 992px) {
