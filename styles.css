@@ -38,7 +38,33 @@ html {
 Computers media query
 */
 @media (min-width: 1025px) {
-    :root{
+    .cursor {
+        z-index: 999;
+        position: absolute;
+        background-color: transparent; /* Hacemos el fondo transparente */
+        width: var(--cursor-values);
+        height: var(--cursor-values);
+        border: var(--cursor-border); /* Ajustamos el color del borde */
+        border-radius: 50%;
+        transform: translate(-50%, -50%); /* Ajuste para centrar el cursor */
+        pointer-events: none; /* Evita que el cursor intercepte eventos de ratón */
+        transition: top 0.2s ease-out, left 0.2s ease-out, width 0.2s ease-out, height 0.2s ease-out; /* Transiciones para un efecto más suave */
+    }
+    
+    .hover-effect:hover  {
+        width: var(--hover-effects);
+        height: var(--hover-effects);
+    }
+    
+    .hover-effect {
+        cursor: pointer;
+    }
+    
+    .cursor.clicked {
+        background-color: var(--color-cursor-clicked);
+        border: lightgray;
+    }
+        :root{
         --body-size: 60vw;
         --cursor-border: 2px solid #d2b48c;
         --color-cursor-clicked: lightgrey;
@@ -78,15 +104,19 @@ Computers media query
 iPad media query
 */
 @media (max-width: 1024px) and (min-width: 1000px) {
+    .cursor {
+        display: none;
+    }
     :root{
         /* 
         Cursor
         */
-        --cursor-color: transparent;
-        --cursor-border: transparent;
-        --color-cursor-clicked: none;
-        --cursor-values: 3rem;
-        --hover-effects: 3rem;
+        --body-size: 60vw;
+        --cursor-border: none;
+        --color-cursor-clicked: transparent;
+        --cursor-values: 0;
+        --hover-effects: 0;
+        --header-size: 100vh;
         /* 
         Body & Header
         */
@@ -136,8 +166,8 @@ Cellphone media query
         --cursor-color: transparent;
         --cursor-border: transparent;
         --color-cursor-clicked: none;
-        --cursor-values: 3rem;
-        --hover-effects: 3rem;
+        --cursor-values: 0;
+        --hover-effects: 0;
         /* 
         Body & Header
         */
@@ -194,7 +224,7 @@ Cellphone media query
             justify-content: center;
         }
         .text-fce {
-            margin-left: -20vh;
+            margin-left: -17vh;
         }
         .freecodecamp-img {
             margin: 15vh -20vh 0 0;
@@ -223,33 +253,6 @@ body {
 .profile-picture {
     margin-left: var(--margin-left-profile-picture);
 }	
-
-.cursor {
-    z-index: 999;
-    position: absolute;
-    background-color: transparent; /* Hacemos el fondo transparente */
-    width: var(--cursor-values);
-    height: var(--cursor-values);
-    border: var(--cursor-border); /* Ajustamos el color del borde */
-    border-radius: 50%;
-    transform: translate(-50%, -50%); /* Ajuste para centrar el cursor */
-    pointer-events: none; /* Evita que el cursor intercepte eventos de ratón */
-    transition: top 0.2s ease-out, left 0.2s ease-out, width 0.2s ease-out, height 0.2s ease-out; /* Transiciones para un efecto más suave */
-}
-
-.hover-effect:hover  {
-    width: var(--hover-effects);
-    height: var(--hover-effects);
-}
-
-.hover-effect {
-    cursor: pointer;
-}
-
-.cursor.clicked {
-    background-color: var(--color-cursor-clicked);
-    border: lightgray;
-}
 
 header {
     height: var(--header-size);
@@ -341,6 +344,10 @@ a.ref {
     text-decoration: none;
 }
 
+.list{
+    margin: 3vh;
+}
+
 section {
     padding: var(--section-padding) 0;
 }
@@ -397,7 +404,7 @@ section#CV .card img {
 }
 section#CV .card img#freecodecamp {
     width: var(--section-cv-card-img-freecodecamp-width);
-    height: 0 auto;
+    height: auto;
 }
 :root[data-theme="dark"] section#CV .card img#freecodecamp {
     filter: invert(1);

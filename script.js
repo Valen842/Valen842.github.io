@@ -76,7 +76,7 @@ function follow() {
 
       // Agrega el siguiente código para verificar si el cursor está sobre un elemento con hover
       const hoveredElement = document.elementFromPoint(x, y);
-      if (hoveredElement && hoveredElement.classList.contains('hover-effect')) {
+      if (hoveredElement && hoveredElement.classList.contains('hover-effect') && window>=1025 ) {
           cursor.classList.add('hovered');
       } else {
           cursor.classList.remove('hovered');
@@ -110,7 +110,7 @@ function scroll () {
 // event listeners
 
 // if the device not have mouse
-if (!navigator.maxTouchPoints) {
+if (!navigator.maxTouchPoints){
   window.addEventListener('mouseout', mouseout)
   follow();
   window.addEventListener('mousedown', mousedown)
