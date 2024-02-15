@@ -224,14 +224,14 @@ Cellphone media query
         .fce-img {
             width: 180px;
             height: 180px;
-            margin: 28vh -10vh 0 2vh;
+            margin: 48vh -10vh 0 2vh;
             justify-content: center;
         }
         .text-fce {
             margin-left: -23vh;
         }
         .freecodecamp-img {
-            margin: 15vh -20vh 0 0;
+            margin: 20vh -20vh 0 0;
         }
         .freecodecamp-txt {
             margin-left: -15vh;
