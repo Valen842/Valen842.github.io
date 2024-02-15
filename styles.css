@@ -96,7 +96,7 @@ Computers media query
         --section-cv-card-border: 3px solid var(--primary-color);
         --section-cv-card-img-width: 300px;
         --section-cv-card-img-border-radius: 10px;
-        --section-cv-card-img-freecodecamp-width: 0px;
+        --section-cv-card-img-freecodecamp-width: 28rem;
     }
 }
 
@@ -152,6 +152,9 @@ iPad media query
         --section-cv-card-img-width: 300px;
         --section-cv-card-img-border-radius: 10px;
         --section-cv-card-img-freecodecamp-width: 300px;
+        .fce-img{
+            margin-bottom: -25rem;
+        }
     }
 }
 
@@ -216,15 +219,16 @@ Cellphone media query
         --section-cv-card-img-border-radius: 10px;
         --section-cv-card-img-freecodecamp-width: 200px;
         overflow: scroll; 
+        margin-left: 2rem;
 
         .fce-img {
             width: 180px;
             height: 180px;
-            margin: 25vh -10vh 0 2vh;
+            margin: 28vh -10vh 0 2vh;
             justify-content: center;
         }
         .text-fce {
-            margin-left: -17vh;
+            margin-left: -23vh;
         }
         .freecodecamp-img {
             margin: 15vh -20vh 0 0;
